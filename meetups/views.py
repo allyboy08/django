@@ -4,6 +4,13 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
-    return render(request, 'meetups/index.html')
+    meetups = [
+        {'title': 'A First Meetup', 'location': 'new york', 'slug': 'a-first-meetup'},
+        {'title': 'A Second Meetup', 'location': 'france', 'slug': 'a-second-meetup'}
+    ]
+    return render(request, 'meetups/index.html', {
+        'show_meetups': True,
+        'meetups': meetups
+    })
 
 

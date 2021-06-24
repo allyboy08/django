@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +7,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>all meetups</title>
+    <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
 </head>
 <body>
-    <h1>all meetups</h1>
-    <p>hello world</p>
+    <header>
+        <nav><a href="/meetups">django</a></nav>
+        <h1>meetups coming up</h1>
+        <p>find one for you</p>
+    </header>
+    <main>
+        <section>
+            <h1>upcoming meetups</h1>
+            <ol>
+                {% for %}
+                <li class="meetup-item">
+                    <article>
+                        <div class="meetup-summary">
+                            <div class="meetup-image">
+                                <img src="" alt="">
+                            </div>
+                            <div class="meetup-details">
+                                <h3>{{ meetup_item.title }}</h3>
+                                <address>{{}}</address>
+                            </div>
+                        </div>
+                    </article>
+
+                </li>
+                {% endfor %}
+            </ol>
+        </section>
+
+    </main>
 </body>
 </html>
