@@ -30,14 +30,20 @@
         <h2>what's this meetup about</h2>
         <p>{{ meetup.description }}</p>
         <footer>
-            <p>need more details? please <a href="">contact the organizer</a> (but don't spam us ;-)).</p>
+            <p>need more details? please <a href="mailto:{{ meetup.organizer_email }}">contact the organizer</a> (but don't spam us ;-)).</p>
         </footer>
     </section>
 
     <section id="registration">
         <h2>join us</h2>
-        <form>
-            <input type="email">
+        <form action="{% url 'meetup-detail' meetup.slug %}" method="POST">
+            {% csrf_token %}
+            <ul>
+                {{ form.as_ul }}
+            </ul>
+            <div id="registration-actions">
+                <button>Register</button>
+            </div>
         </form>
     </section>
 </article>
